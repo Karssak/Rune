@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Comicrunes";
+  src: url("/public/fonts/comicrunes.woff2") format("woff2"),
+    url("/public/fonts/comicrunes.woff") format("woff"),
+    url("/public/fonts/comicrunes.otf") format("otf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.rune-font {
+  font-family: "Comicrunes", sans-serif;
+}
+
+.noto-font {
+  font-family: "Noto Sans", sans-serif;
+}
+
+.runes-bg {
+  position: relative;
+  background: linear-gradient(to right, #2e0866 0%, #101c3b 100%);
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.runes-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.rune {
+  color: rgba(255, 255, 255, 0.3);
+  animation: float ease-in-out infinite;
+  filter: blur(0.5px);
+  transition: transform 0.5s;
+}
