@@ -1,123 +1,123 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { FiMessageCircle, FiSettings } from "react-icons/fi";
 
-const getRandomOffset = (maxOffset) => Math.random() * maxOffset;
-const getRandomDuration = (min, max) => Math.random() * (max - min) + min;
-const getRandomFloatHeight = (min, max) => Math.random() * (max - min) + min;
-
-const runes = [
-  "ᚠ", "ᚢ", "ᚦ", "ᚨ", "ᚱ", "ᚷ", "ᚹ", "ᚺ", "ᚾ", 
-  "ᛃ", "ᛇ", "ᛈ", "ᛉ", "ᛊ", "ᛏ", "ᛒ", "ᛖ", "ᛗ", "ᛚ", 
-  "ᛝ", "ᛞ", "ᛟ", "ᛠ", "ᛡ", "ᛣ", "ᛥ", "ᛦ", "ᚴ", "ᛩ", 
-  "ᛪ", "ᛯ", "ᛰ", "ᛲ", "ᛳ", "ᛴ", "ᛵ", "ᛶ", "ᛷ", "ᛸ", 
-  "ᛋ", "ᛂ", "ᛨ"
-]
-
-const HomePage = () => {
-  const runeCount = 70;
-  const gridColumns = 10;
-  const gridRows = Math.ceil(runeCount / gridColumns);
-  const cellWidth = 100 / gridColumns;
-  const cellHeight = 100 / gridRows;
-
+const MainPage = () => {
   return (
-    <div className="runes-bg relative flex min-h-screen flex-col items-center justify-center overflow-hidden">
-      <div className="rune-font absolute left-6 top-6 z-20 text-4xl text-white">
-        Rune
-        <span className="noto-font ml-1.5 text-sm text-gray-400">0.1.0</span>
-      </div>
+    <div className="runes-bg flex h-screen">
+      {/* Left Sidebar for Servers */}
+      <aside className="server-sidebar flex w-[5.5rem] flex-col items-center justify-between border-r-[1.5px] border-[#1a0d56] bg-black bg-opacity-10 py-4 backdrop-blur-md">
+        {/* Container for Message Icon */}
+        <div className="flex flex-col items-center space-y-4">
+          {/* Message Icon for Direct Messages */}
+          <div className="relative flex h-[52px] w-[52px] cursor-pointer items-center justify-center rounded-full bg-indigo-700 transition-all duration-300 hover:ring-2 hover:ring-white hover:ring-opacity-100">
+            <FiMessageCircle className="text-3xl text-white" />
+          </div>
 
-      <h1 className="mb-4 text-5xl font-bold text-white">
-        Welcome to <span className="rune-font">Rune</span>
-      </h1>
-      <p className="mb-6 max-w-lg text-center text-lg text-gray-200">
-        Rune is safe, secure, and open-source messenger to stay connected.
-        Whether you're chatting with friends or building communities, Rune makes
-        sure your interactions are private and protected.
-      </p>
-      <div className="z-10 flex flex-col space-y-4 md:flex-row md:space-x-4 md:space-y-0">
-        <Link to="/login">
-          <button className="w-full transform rounded-md bg-gradient-to-r from-blue-700 to-blue-800 px-6 py-[0.65rem] text-white transition duration-500 hover:scale-105 hover:from-blue-600 hover:to-blue-700 active:scale-[0.8] md:w-auto">
-            Log In
-          </button>
-        </Link>
-        <Link to="/register">
-          <button className="w-full transform rounded-md border border-indigo-500 px-6 py-[0.65rem] text-indigo-500 transition duration-500 hover:scale-105 hover:bg-gradient-to-r hover:from-indigo-600 hover:to-indigo-600 hover:text-white active:scale-[0.8] md:w-auto">
-            Sign Up
-          </button>
-        </Link>
-      </div>
+          {/* Divider Line */}
+          <hr className="w-1/2 rounded-full border-t-[3px] border-gray-600" />
+        </div>
 
-      <footer className="absolute bottom-4 flex items-center text-sm text-gray-400">
-        Made with
-        <svg
-          className="mx-1 h-4 w-4 fill-current text-red-500"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
+        {/* Container for servers */}
+        <div
+          className="server-icons-container flex w-[4rem] flex-col items-center space-y-5 overflow-y-auto pb-3 pt-4"
+          style={{
+            height: "calc(100vh - 160px)",
+            scrollbarWidth: "none",
+            msOverflowStyle: "none",
+          }}
         >
-          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-        </svg>
-        by&nbsp;
-        <a
-          href="https://github.com/karssak"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="underline hover:text-indigo-400"
-        >
-          karssak
-        </a>
-      </footer>
+          {/* Servers*/}
+          <div
+            className="server-icon flex h-[52px] w-[52px] cursor-pointer items-center justify-center rounded-full bg-indigo-600 text-white transition-all duration-300 hover:ring-2 hover:ring-white hover:ring-opacity-100"
+            style={{ flexShrink: 0 }}
+          >
+            S1
+          </div>
+          <div
+            className="server-icon flex h-[52px] w-[52px] cursor-pointer items-center justify-center rounded-full bg-indigo-600 text-white transition-all duration-300 hover:ring-2 hover:ring-white hover:ring-opacity-100"
+            style={{ flexShrink: 0 }}
+          >
+            S2
+          </div>
+          <div
+            className="server-icon flex h-[52px] w-[52px] cursor-pointer items-center justify-center rounded-full bg-indigo-600 text-white transition-all duration-300 hover:ring-2 hover:ring-white hover:ring-opacity-100"
+            style={{ flexShrink: 0 }}
+          >
+            S3
+          </div>
+          <div
+            className="server-icon flex h-[52px] w-[52px] cursor-pointer items-center justify-center rounded-full bg-indigo-600 text-white transition-all duration-300 hover:ring-2 hover:ring-white hover:ring-opacity-100"
+            style={{ flexShrink: 0 }}
+          >
+            S4
+          </div>
+          <div
+            className="server-icon flex h-[52px] w-[52px] cursor-pointer items-center justify-center rounded-full bg-indigo-600 text-white transition-all duration-300 hover:ring-2 hover:ring-white hover:ring-opacity-100"
+            style={{ flexShrink: 0 }}
+          >
+            S5
+          </div>
+          <div
+            className="server-icon flex h-[52px] w-[52px] cursor-pointer items-center justify-center rounded-full bg-indigo-600 text-white transition-all duration-300 hover:ring-2 hover:ring-white hover:ring-opacity-100"
+            style={{ flexShrink: 0 }}
+          >
+            S6
+          </div>
+          <div
+            className="server-icon flex h-[52px] w-[52px] cursor-pointer items-center justify-center rounded-full bg-indigo-600 text-white transition-all duration-300 hover:ring-2 hover:ring-white hover:ring-opacity-100"
+            style={{ flexShrink: 0 }}
+          >
+            S7
+          </div>
+          <div
+            className="server-icon flex h-[52px] w-[52px] cursor-pointer items-center justify-center rounded-full bg-indigo-600 text-white transition-all duration-300 hover:ring-2 hover:ring-white hover:ring-opacity-100"
+            style={{ flexShrink: 0 }}
+          >
+            S8
+          </div>
+          <div
+            className="server-icon flex h-[52px] w-[52px] cursor-pointer items-center justify-center rounded-full bg-indigo-600 text-white transition-all duration-300 hover:ring-2 hover:ring-white hover:ring-opacity-100"
+            style={{ flexShrink: 0 }}
+          >
+            S9
+          </div>
+          <div
+            className="server-icon flex h-[52px] w-[52px] cursor-pointer items-center justify-center rounded-full bg-indigo-600 text-white transition-all duration-300 hover:ring-2 hover:ring-white hover:ring-opacity-100"
+            style={{ flexShrink: 0 }}
+          >
+            S10
+          </div>
+        </div>
 
-      <div className="runes-container">
-        {Array.from({ length: runeCount }).map((_, index) => {
-          const column = index % gridColumns;
-          const row = Math.floor(index / gridColumns);
+        {/* Divider Line */}
+        <hr className="mb-[0.2rem] w-[30%] rounded-full border-t-[3px] border-gray-600" />
 
-          const topPosition = row * cellHeight + getRandomOffset(10);
-          const leftPosition = column * cellWidth + getRandomOffset(10);
-          const animationDuration = getRandomDuration(3, 8);
-          const floatHeight = getRandomFloatHeight(10, 30);
+        {/* Bottom Settings and User container */}
+        <div className="mt-auto flex flex-col items-center">
+          <div className="relative flex flex-col items-center justify-center space-y-[0.32rem]">
+            {/* Settings */}
+            <div className="relative flex h-[54px] w-[54px] transform cursor-pointer items-center justify-center transition-transform duration-500 hover:rotate-180">
+              <FiSettings className="text-2xl text-white" />
+            </div>
 
-          return (
-            <span
-              key={index}
-              className="rune"
-              style={{
-                position: "absolute",
-                top: `${topPosition}%`,
-                left: `${leftPosition}%`,
-                fontSize: `${getRandomOffset(20) + 20}px`,
-                animation: `fadeInScale 1.5s ease-in-out forwards, float-${index} ${animationDuration}s ease-in-out infinite`,
-                transform: `translate(-50%, -50%)`,
-              }}
-            >
-              {runes[Math.floor(Math.random() * runes.length)]}{" "}
-              <style>{`
-                @keyframes float-${index} {
-                  0%, 100% {
-                    transform: translateY(0);
-                  }
-                  50% {
-                    transform: translateY(-${floatHeight}px);
-                  }
-                }
-                @keyframes fadeInScale {
-                  0% {
-                    opacity: 0;
-                    transform: scale(0.5);
-                  }
-                  100% {
-                    opacity: 1;
-                    transform: scale(1);
-                  }
-                }
-              `}</style>
-            </span>
-          );
-        })}
-      </div>
+            {/* User Avatar with status */}
+            <div className="relative flex h-[50px] w-[50px] cursor-pointer items-center justify-center rounded-full p-[2px] ring-[3px] ring-[#3b9d73]">
+              <img
+                src="https://placehold.co/50x50"
+                alt="User Avatar"
+                className="h-[46px] w-[46px] rounded-full"
+              />
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      {/* Main Content */}
+      <main className="flex min-h-screen flex-1 items-center justify-center bg-gray-900">
+        <h1 className="text-6xl font-bold text-white">WORK IN PROGRESS</h1>
+      </main>
     </div>
   );
 };
 
-export default HomePage;
+export default MainPage;
