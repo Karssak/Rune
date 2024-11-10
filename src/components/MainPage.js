@@ -13,7 +13,7 @@ const runes = [
   "ᛋ", "ᛂ", "ᛨ"
 ]
 
-const HomePage = () => {
+const MainPage = () => {
   const runeCount = 70;
   const gridColumns = 10;
   const gridRows = Math.ceil(runeCount / gridColumns);
@@ -120,4 +120,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default MainPage;

@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FiMessageCircle, FiSettings } from "react-icons/fi";
 import ServerTooltip from "./ServerTooltip";
 import DmSidebar from "./DmSidebar";
+import DmSection from "./DmSection";
 
-const MainPage = () => {
+const HomePage = () => {
   const [tooltip, setTooltip] = useState({
     visible: false,
     position: { top: 0, left: 0 },
@@ -16,7 +17,7 @@ const MainPage = () => {
       visible: true,
       position: {
         top: rect.top + 10,
-        left: rect.right + 2,
+        left: rect.right + 6,
       },
       text,
     });
@@ -28,7 +29,7 @@ const MainPage = () => {
 
   return (
     <div className="runes-bg relative flex h-screen">
-      <aside className="server-sidebar flex w-[5.5rem] flex-col items-center justify-between border-r-[1.5px] border-indigo-950 bg-black bg-opacity-20 py-4 backdrop-blur-md">
+      <aside className="server-sidebar flex w-[5.5rem] flex-col items-center justify-between border-r-[1.5px] border-[#2a1b4e] bg-black bg-opacity-10 py-4 backdrop-blur-md">
         <div className="flex flex-col items-center space-y-4">
           <div className="relative flex h-[52px] w-[52px] cursor-pointer items-center justify-center rounded-full bg-indigo-700 transition-all duration-300 hover:ring-2 hover:ring-white hover:ring-opacity-100">
             <FiMessageCircle className="text-3xl text-white" />
@@ -184,9 +185,7 @@ const MainPage = () => {
 
       <main className="flex flex-1">
         <DmSidebar />
-        <div className="flex min-h-screen flex-1 items-center justify-center bg-gray-900">
-          <h1 className="text-6xl font-bold text-white">WORK IN PROGRESS</h1>
-        </div>
+        <DmSection />
       </main>
 
       <ServerTooltip
@@ -198,4 +197,4 @@ const MainPage = () => {
   );
 };
 
-export default MainPage;
+export default HomePage;
