@@ -42,3 +42,22 @@
   filter: blur(0.5px);
   transition: transform 0.5s;
 }
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  background-color: #1a1a2e;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #3730a3;
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #312e81;
+}
+
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #3730a3 #1a1a2e;
+}

@@ -3,6 +3,7 @@ import { FiMessageCircle, FiSettings } from "react-icons/fi";
 import ServerTooltip from "./ServerTooltip";
 import DmSidebar from "./DmSidebar";
 import DmSection from "./DmSection";
+import UserProfile from "./UserProfile";
 
 const HomePage = () => {
   const [tooltip, setTooltip] = useState({
@@ -10,6 +11,8 @@ const HomePage = () => {
     position: { top: 0, left: 0 },
     text: "",
   });
+  const [isProfileVisible, setProfileVisible] = useState(false);
+  const [profilePosition, setProfilePosition] = useState({ top: 0, left: 0 });
 
   const handleMouseEnter = (event, text) => {
     const rect = event.currentTarget.getBoundingClientRect();
@@ -27,18 +30,27 @@ const HomePage = () => {
     setTooltip({ ...tooltip, visible: false });
   };
 
+  const handleAvatarClick = (event) => {
+    const rect = event.currentTarget.getBoundingClientRect();
+    setProfilePosition({
+      top: rect.top,
+      left: rect.right + 10,
+    });
+    setProfileVisible(!isProfileVisible);
+  };
+
   return (
-    <div className="runes-bg relative flex h-screen">
-      <aside className="server-sidebar flex w-[5.5rem] flex-col items-center justify-between border-r-[1.5px] border-[#2a1b4e] bg-black bg-opacity-10 py-4 backdrop-blur-md">
-        <div className="flex flex-col items-center space-y-4">
-          <div className="relative flex h-[52px] w-[52px] cursor-pointer items-center justify-center rounded-full bg-indigo-700 transition-all duration-300 hover:ring-2 hover:ring-white hover:ring-opacity-100">
+    <div className="runes-bg flex">
+      <aside className="flex w-[5.5rem] flex-col items-center border-r-[1.5px] border-[#2a1b4e] bg-black bg-opacity-10 py-3 backdrop-blur-md">
+        <div className="flex flex-col items-center space-y-3">
+          <div className="flex h-[52px] w-[52px] cursor-pointer items-center justify-center rounded-full bg-indigo-700 duration-300 hover:ring-2 hover:ring-white hover:ring-opacity-100">
             <FiMessageCircle className="text-3xl text-white" />
           </div>
           <hr className="w-1/2 rounded-full border-t-[3px] border-gray-600" />
         </div>
 
         <div
-          className="server-icons-container flex w-[4rem] flex-col items-center space-y-3 overflow-y-auto pb-3 pt-4"
+          className="flex w-[4rem] flex-col items-center space-y-3 overflow-y-auto py-3"
           style={{
             height: "calc(100vh - 160px)",
             scrollbarWidth: "none",
@@ -46,7 +58,7 @@ const HomePage = () => {
           }}
         >
           <div
-            className="server-icon flex h-[58px] w-[58px] cursor-pointer items-center justify-center rounded-full transition-all duration-300 hover:ring-2 hover:ring-white hover:ring-opacity-100"
+            className="flex h-[58px] w-[58px] cursor-pointer items-center justify-center rounded-full duration-[500ms] hover:ring-2 hover:ring-white hover:ring-opacity-100"
             style={{ flexShrink: 0 }}
             onMouseEnter={(e) => handleMouseEnter(e, "Server Name")}
             onMouseLeave={handleMouseLeave}
@@ -58,7 +70,7 @@ const HomePage = () => {
             />
           </div>
           <div
-            className="server-icon flex h-[58px] w-[58px] cursor-pointer items-center justify-center rounded-full transition-all duration-300 hover:ring-2 hover:ring-white hover:ring-opacity-100"
+            className="flex h-[58px] w-[58px] cursor-pointer items-center justify-center rounded-full duration-[500ms] hover:ring-2 hover:ring-white hover:ring-opacity-100"
             style={{ flexShrink: 0 }}
             onMouseEnter={(e) => handleMouseEnter(e, "Server Name")}
             onMouseLeave={handleMouseLeave}
@@ -70,7 +82,7 @@ const HomePage = () => {
             />
           </div>
           <div
-            className="server-icon flex h-[58px] w-[58px] cursor-pointer items-center justify-center rounded-full transition-all duration-300 hover:ring-2 hover:ring-white hover:ring-opacity-100"
+            className="flex h-[58px] w-[58px] cursor-pointer items-center justify-center rounded-full duration-[500ms] hover:ring-2 hover:ring-white hover:ring-opacity-100"
             style={{ flexShrink: 0 }}
             onMouseEnter={(e) => handleMouseEnter(e, "Server Name")}
             onMouseLeave={handleMouseLeave}
@@ -82,7 +94,7 @@ const HomePage = () => {
             />
           </div>
           <div
-            className="server-icon flex h-[58px] w-[58px] cursor-pointer items-center justify-center rounded-full transition-all duration-300 hover:ring-2 hover:ring-white hover:ring-opacity-100"
+            className="flex h-[58px] w-[58px] cursor-pointer items-center justify-center rounded-full duration-[500ms] hover:ring-2 hover:ring-white hover:ring-opacity-100"
             style={{ flexShrink: 0 }}
             onMouseEnter={(e) => handleMouseEnter(e, "Server Name")}
             onMouseLeave={handleMouseLeave}
@@ -94,7 +106,7 @@ const HomePage = () => {
             />
           </div>
           <div
-            className="server-icon flex h-[58px] w-[58px] cursor-pointer items-center justify-center rounded-full transition-all duration-300 hover:ring-2 hover:ring-white hover:ring-opacity-100"
+            className="flex h-[58px] w-[58px] cursor-pointer items-center justify-center rounded-full duration-[500ms] hover:ring-2 hover:ring-white hover:ring-opacity-100"
             style={{ flexShrink: 0 }}
             onMouseEnter={(e) => handleMouseEnter(e, "Server Name")}
             onMouseLeave={handleMouseLeave}
@@ -106,7 +118,7 @@ const HomePage = () => {
             />
           </div>
           <div
-            className="server-icon flex h-[58px] w-[58px] cursor-pointer items-center justify-center rounded-full transition-all duration-300 hover:ring-2 hover:ring-white hover:ring-opacity-100"
+            className="flex h-[58px] w-[58px] cursor-pointer items-center justify-center rounded-full duration-[500ms] hover:ring-2 hover:ring-white hover:ring-opacity-100"
             style={{ flexShrink: 0 }}
             onMouseEnter={(e) => handleMouseEnter(e, "Server Name")}
             onMouseLeave={handleMouseLeave}
@@ -118,7 +130,7 @@ const HomePage = () => {
             />
           </div>
           <div
-            className="server-icon flex h-[58px] w-[58px] cursor-pointer items-center justify-center rounded-full transition-all duration-300 hover:ring-2 hover:ring-white hover:ring-opacity-100"
+            className="flex h-[58px] w-[58px] cursor-pointer items-center justify-center rounded-full duration-[500ms] hover:ring-2 hover:ring-white hover:ring-opacity-100"
             style={{ flexShrink: 0 }}
             onMouseEnter={(e) => handleMouseEnter(e, "Server Name")}
             onMouseLeave={handleMouseLeave}
@@ -130,7 +142,7 @@ const HomePage = () => {
             />
           </div>
           <div
-            className="server-icon flex h-[58px] w-[58px] cursor-pointer items-center justify-center rounded-full transition-all duration-300 hover:ring-2 hover:ring-white hover:ring-opacity-100"
+            className="flex h-[58px] w-[58px] cursor-pointer items-center justify-center rounded-full duration-[500ms] hover:ring-2 hover:ring-white hover:ring-opacity-100"
             style={{ flexShrink: 0 }}
             onMouseEnter={(e) => handleMouseEnter(e, "Server Name")}
             onMouseLeave={handleMouseLeave}
@@ -142,7 +154,7 @@ const HomePage = () => {
             />
           </div>
           <div
-            className="server-icon flex h-[58px] w-[58px] cursor-pointer items-center justify-center rounded-full transition-all duration-300 hover:ring-2 hover:ring-white hover:ring-opacity-100"
+            className="flex h-[58px] w-[58px] cursor-pointer items-center justify-center rounded-full duration-[500ms] hover:ring-2 hover:ring-white hover:ring-opacity-100"
             style={{ flexShrink: 0 }}
             onMouseEnter={(e) => handleMouseEnter(e, "Server Name")}
             onMouseLeave={handleMouseLeave}
@@ -154,7 +166,7 @@ const HomePage = () => {
             />
           </div>
           <div
-            className="server-icon flex h-[58px] w-[58px] cursor-pointer items-center justify-center rounded-full transition-all duration-300 hover:ring-2 hover:ring-white hover:ring-opacity-100"
+            className="flex h-[58px] w-[58px] cursor-pointer items-center justify-center rounded-full duration-[500ms] hover:ring-2 hover:ring-white hover:ring-opacity-100"
             style={{ flexShrink: 0 }}
             onMouseEnter={(e) => handleMouseEnter(e, "Server Name")}
             onMouseLeave={handleMouseLeave}
@@ -166,19 +178,20 @@ const HomePage = () => {
             />
           </div>
         </div>
-        <hr className="mb-[0.2rem] w-[30%] rounded-full border-t-[3px] border-gray-600" />
-        <div className="mt-auto flex flex-col items-center">
-          <div className="relative flex flex-col items-center justify-center space-y-[0.32rem]">
-            <div className="relative flex h-[54px] w-[54px] transform cursor-pointer items-center justify-center transition-transform duration-500 hover:rotate-180">
-              <FiSettings className="text-2xl text-white" />
-            </div>
-            <div className="relative flex h-[50px] w-[50px] cursor-pointer items-center justify-center rounded-full p-[2px] ring-[3px] ring-[#3b9d73]">
-              <img
-                src="https://placehold.co/50x50"
-                alt="User Avatar"
-                className="h-[46px] w-[46px] rounded-full"
-              />
-            </div>
+        <div className="pointer-events-none absolute bottom-[7.2rem] h-6 w-full bg-gradient-to-t from-[#301463]/100 to-transparent"></div>
+        <div className="flex flex-col items-center justify-center">
+          <div className="flex h-[54px] w-[54px] transform cursor-pointer items-center justify-center transition-transform duration-500 hover:rotate-180">
+            <FiSettings className="text-2xl text-white" />
+          </div>
+          <div
+            className="relative flex h-[50px] w-[50px] cursor-pointer items-center justify-center rounded-full p-[2px] ring-[3px] ring-[#3b9d73]"
+            onClick={handleAvatarClick}
+          >
+            <img
+              src="https://placehold.co/50x50"
+              alt="User Avatar"
+              className="h-[46px] w-[46px] rounded-full"
+            />
           </div>
         </div>
       </aside>
@@ -192,6 +205,12 @@ const HomePage = () => {
         visible={tooltip.visible}
         position={tooltip.position}
         text={tooltip.text}
+      />
+
+      <UserProfile
+        visible={isProfileVisible}
+        position={profilePosition}
+        onClose={() => setProfileVisible(false)}
       />
     </div>
   );
