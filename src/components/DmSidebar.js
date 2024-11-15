@@ -10,7 +10,7 @@ const DmSidebar = () => {
 
   return (
     <aside className="flex w-[17rem] flex-col border-[#2a1b4e] bg-black bg-opacity-5 backdrop-blur-md">
-      <div className="flex w-full flex-col">
+      <div className="flex w-full flex-col border-r-[1.5px] border-indigo-950">
         <button
           className={`${
             selectedTab === "DM"
@@ -35,7 +35,7 @@ const DmSidebar = () => {
         </button>
       </div>
 
-      <div className="custom-scrollbar flex-1 space-y-2 overflow-y-auto">
+      <div className="custom-scrollbar flex-1 space-y-2 overflow-y-auto border-r-[1.5px] border-indigo-950">
         {selectedTab === "DM" && (
           <>
             <div className="flex cursor-pointer items-center space-x-3 px-3 py-2 transition-all duration-300 hover:bg-indigo-950">

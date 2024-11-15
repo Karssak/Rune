@@ -3,6 +3,8 @@ import { FiPaperclip, FiSmile } from "react-icons/fi";
 import { MdGif } from "react-icons/md";
 import { LuSend } from "react-icons/lu";
 
+// TODO: Remove pb from last message
+
 const DmSection = () => {
   const [messages, setMessages] = useState([
     {
@@ -122,7 +124,7 @@ const DmSection = () => {
                 }`}
               >
                 {msg.user !== "You" && (
-                  <div className="mb-1 flex items-center justify-start space-x-2">
+                  <div className="flex items-center justify-start space-x-2">
                     <span className="text-sm font-semibold text-gray-200">
                       {msg.username}
                     </span>

@@ -5,7 +5,8 @@ import "./index.css";
 import HomePage from "./components/HomePage";
 import LoginPage from "./components/LoginPage";
 import RegisterPage from "./components/RegisterPage";
-import MainPage from './components/MainPage';
+import MainPage from "./components/MainPage";
+import NotFoundPage from "./components/NotFoundPage";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -16,6 +17,7 @@ root.render(
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/home" element={<HomePage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Router>
   </React.StrictMode>

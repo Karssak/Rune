@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { FiPaperclip, FiSmile } from "react-icons/fi";
 import { MdGif } from "react-icons/md";
 import { LuSend } from "react-icons/lu";
+import { FiHash } from "react-icons/fi";
+
 
 const ServerSection = ({ channelName = "general", serverUsers = [] }) => {
   const [messages, setMessages] = useState([
@@ -39,8 +41,9 @@ const ServerSection = ({ channelName = "general", serverUsers = [] }) => {
     <div className="flex flex-1">
       {}
       <div className="server-chat-section flex flex-1 flex-col border-r-[1.5px] border-indigo-950">
-        <div className="active-channel-header flex items-center space-x-2 p-4 py-4">
-          <h2 className="text-lg font-semibold text-white">#{channelName}</h2>
+        <div className="active-channel-header flex items-center space-x-1 p-4 py-[1.125rem]">
+          <FiHash className="text-white" />
+          <span className="text-white">general</span>
         </div>
 
         <div className="custom-scrollbar messages-area flex-1 overflow-y-auto border-t-[1.5px] border-indigo-950 p-4">
